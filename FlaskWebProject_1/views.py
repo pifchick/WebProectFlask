@@ -3,8 +3,9 @@ Routes and views for the flask application.
 """
 
 from datetime import datetime
-from flask import render_template
-from FlaskWebProject_1 import app
+from flask import render_template, Flask, url_for
+
+app = Flask(__name__)
 
 @app.route('/')
 @app.route('/home')
@@ -35,3 +36,6 @@ def about():
         year=datetime.now().year,
         message='Your application description page.'
     )
+
+if __name__=='__main__':
+    app.run(debug=True)
